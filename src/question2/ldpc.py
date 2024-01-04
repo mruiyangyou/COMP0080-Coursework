@@ -2,6 +2,15 @@ import numpy as np
 from typing import List
 
 def enocding(H: np.ndarray) -> (np.ndarray, np.ndarray):
+    """
+    Performs encoding on a given parity-check matrix.
+
+    Args:
+        H (np.ndarray): Parity-check matrix.
+
+    Returns:
+        tuple: Modified parity-check matrix and generator matrix.
+    """
     m, n = H.shape
     k = n - m
     
@@ -25,13 +34,29 @@ def enocding(H: np.ndarray) -> (np.ndarray, np.ndarray):
 
 
 def read_y(path: str) -> List[int]:
-    
+    """
+    Reads a file containing binary data.
+
+    Args:
+        path (str): Path to the file.
+
+    Returns:
+        List[int]: List of binary values read from the file.
+    """
     with open(path, 'r')as f:
         res = [int(line.strip()) for line in f.readlines()] 
     return res
         
 def read_h(path: str) -> List[List[int]]:
-    
+    """
+    Reads a parity-check matrix from a file.
+
+    Args:
+        path (str): Path to the file.
+
+    Returns:
+        List[List[int]]: Parity-check matrix read from the file.
+    """
     with open(path, 'r') as f:
         res = [list(map(int, line.strip().split(' '))) for line in f.readlines()]
     return res
@@ -39,6 +64,19 @@ def read_h(path: str) -> List[List[int]]:
 
 def decoding(H: np.ndarray, y: np.ndarray, 
              p: float = 0.1, max_iter: int = 20) -> (int, int, np.ndarray):
+    """
+    Performs decoding on received data using belief propagation.
+
+    Args:
+        H (np.ndarray): Parity-check matrix.
+        y (np.ndarray): Received binary data.
+        p (float, optional): Probability of bit-flip. Defaults to 0.1.
+        max_iter (int, optional): Maximum number of iterations. Defaults to 20.
+
+    Returns:
+        tuple: Status (0 for success, -1 for failure), number of iterations, and decoded data.
+    """
+    
     # decide size of check matrix
     m,n = H.shape
     
