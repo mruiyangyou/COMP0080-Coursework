@@ -14,5 +14,6 @@
     * [Source code](/src/question2/ldpc.py)
     * [Notebook](/src/question2/question2.ipynb)
 
-* 3 Exact inferenc  
+* 3 Ising Model
+    * [Source code](src/question3/Q3.py)     
     * [Notebook](/src/question3/Q3.ipynb)
