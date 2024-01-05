@@ -17,3 +17,10 @@
 * 3 Ising Model
     * [Source code](src/question3/Q3.py)     
     * [Notebook](/src/question3/Q3.ipynb)
+
+## How to use
+
+```bash
+git clone https://github.com/mruiyangyou/COMP0080-Coursework.git
+cd COMP0080-Coursework
+```
